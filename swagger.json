@@ -1,0 +1,924 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "version": "1.0.0",
+        "title": "Jobs,Applications,Courses CRUD",
+        "description": "Jobs,Applications,Courses API .\n\n To See All User Routes With More Data,\n\n visit https://seff-user-api.vercel.app/",
+        "license": {
+            "name": "MIT",
+            "url": "https://opensource.org/licenses/HIY"
+        }
+    },
+    "host": "localhost:5000",
+    "basePath": "/",
+    "tags": [
+        {
+            "name": "Jobs",
+            "description": "API for jobs in the system"
+        },
+        {
+            "name": "Courses",
+            "description": "API for Courses in the system"
+        }
+    ],
+    "schemes": ["http"],
+    "consumes": ["application/json"],
+    "produces": ["application/json"],
+    "paths": {
+        "/jobs": {
+            "get": {
+                "tags": ["Jobs"],
+                "summary": "Return all jobs from the system",
+                "description": "Return all jobs from the system",
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Return all jobs from the system",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/Job"
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": ["Jobs"],
+                "summary": "Create a new job",
+                "description": "Adds a new job to the system",
+                "parameters": [
+                    {
+                        "name": "job",
+                        "in": "body",
+                        "description": "Job object to be created",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Job"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Job created successfully"
+                    }
+                }
+            }
+        },
+        "/jobs/{id}": {
+            "post": {
+                "tags": ["Jobs"],
+                "summary": "Create a new application for a job",
+                "description": "Adds a new application to the specified job",
+                "parameters": [
+                    {
+                        "name": "application",
+                        "in": "body",
+                        "description": "Application object to be created",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Job/applications"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Application created successfully"
+                    }
+                }
+            }
+        },
+        "/job/{id}": {
+            "get": {
+                "tags": ["Jobs"],
+                "summary": "get job details when enter it's id",
+                "description": "Adds a new application to the specified job",
+                "parameters": [
+                    {
+                        "name": "application",
+                        "in": "body",
+                        "description": "Application object to be created",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Job/applications"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Application created successfully"
+                    }
+                }
+            },
+            "delete":{
+                "tags": ["Jobs"],
+                "summary": "delete a job when enter its id",
+                "description": "delete a job when enter its id",
+                "parameters": [
+                    {
+                        "name": "application",
+                        "in": "body",
+                        "description": "Application object to be created",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Job/applications"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Application created successfully"
+                    }
+                }
+            },
+            "patch":{
+                "tags": ["Jobs"],
+                "summary": "update job details when enter its id with new properties",
+                "description": "update job details when enter its id with new properties",
+                "parameters": [
+                    {
+                        "name": "application",
+                        "in": "body",
+                        "description": "Application object to be created",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Job/applications"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Application created successfully"
+                    }
+                }
+            }
+        },
+        "/jobsOnly": {
+            "get": {
+                "tags": ["Jobs"],
+                "summary": "get all jobs details only without application's information for each job",
+                "description": "get all jobs details only without application's information for each job",
+                "parameters": [
+                    {
+                        "name": "application",
+                        "in": "body",
+                        "description": "Application object to be created",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Job/applications"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Application created successfully"
+                    }
+                }
+            }
+        },
+        "/jobOnly/{id}": {
+            "get": {
+                "tags": ["Jobs"],
+                "summary": "get job details that's id is entered",
+                "description": "get job details that's id is entered",
+                "parameters": [
+                    {
+                        "name": "application",
+                        "in": "body",
+                        "description": "Application object to be created",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Job/applications"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Application created successfully"
+                    }
+                }
+            }
+        },
+        "/applications": {
+            "get": {
+                "tags": ["Jobs"],
+                "summary": "get all applications details to all jobs",
+                "description": "get all applications details to all jobs",
+                "parameters": [
+                    {
+                        "name": "application",
+                        "in": "body",
+                        "description": "Application object to be created",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Job/applications"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Application created successfully"
+                    }
+                }
+            }
+        },
+        "/job/{id}/{ida}": {
+            "get": {
+                "tags": ["Jobs"],
+                "summary": "get application details when you enter id for the job that it belongs to then the application id",
+                "description": "get application details when you enter id for the job that it belongs to then the application id",
+                "parameters": [
+                    {
+                        "name": "application",
+                        "in": "body",
+                        "description": "Application object to be created",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Job/applications"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Application created successfully"
+                    }
+                }
+            }
+        },
+        "/application/{id}": {
+            "delete": {
+                "tags": ["Jobs"],
+                "summary": "delete application when enter it's id",
+                "description": "delete application when enter it's id",
+                "parameters": [
+                    {
+                        "name": "application",
+                        "in": "body",
+                        "description": "Application object to be created",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Job/applications"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Application created successfully"
+                    }
+                }
+            },
+            "patch": {
+                "tags": ["Jobs"],
+                "summary": "update application when enter it's id with new properties",
+                "description": "update application when enter it's id with new properties",
+                "parameters": [
+                    {
+                        "name": "application",
+                        "in": "body",
+                        "description": "Application object to be created",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Job/applications"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Application created successfully"
+                    }
+                }
+            }
+        },
+        "/applications/{id}": {
+            "get": {
+                "tags": ["Jobs"],
+                "summary": "get all applications for one job when enter job's id",
+                "description": "get all applications for one job when enter job's id",
+                "parameters": [
+                    {
+                        "name": "application",
+                        "in": "body",
+                        "description": "Application object to be created",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Job/applications"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Application created successfully"
+                    }
+                }
+            }
+        },
+        "/certification/create" :{
+            "post": {
+                "summary": "Create a new Certificate",
+                "description": "Add a new Certificate to the system",
+                "parameters": [
+                    {
+                        "name": "Certificate",
+                        "in": "body",
+                        "description": "Certificate object to be created",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Courses"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Certificate created successfully"
+                    }
+                }
+            }
+        },
+        "/certification": {
+            "get": {
+                "summary": "Return all certificates from the system",
+                "description": "Return all cirtificates from the system",
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Return all certifiates from the system",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/Certificate"
+                            }
+                        }
+                    }
+                }
+            }
+            
+        },
+        "/certificate/{id}": {
+            "get": {
+                "summary": "get certificate details that's id is entered",
+                "description": "get certificate details that's id is entered",
+                "parameters": [
+                    {
+                        "name": "certificate",
+                        "in": "body",
+                        "description": "Certificate details",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Certificate"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Certificate details"
+                    }
+                }
+            },
+            "delete": {
+                "summary": "delete certificate when enter it's id",
+                "description": "delete certificate when enter it's id",
+                "parameters": [
+                    {
+                        "name": "application",
+                        "in": "body",
+                        "description": "Certificate object to be deleted",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Certificates"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Certificate deleted successfully"
+                    }
+                }
+            },
+            "put": {
+                "summary": "update certificate when enter it's id with new properties",
+                "description": "update certificate when enter it's id with new properties",
+                "parameters": [
+                    {
+                        "name": "certification",
+                        "in": "body",
+                        "description": "certification object to be updated",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Certificates"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Certificate updated successfully"
+                    }
+                }
+            },
+            "patch": {
+                "summary": "update certificate when user '((enroll))' into the course",
+                "description": "update certificate when user '((enroll))' into the course",
+                "parameters": [
+                    {
+                        "name": "certification",
+                        "in": "body",
+                        "description": "certification object to be updated",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Certificate"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Certification updated successfully"
+                    }
+                }
+            }
+
+        },
+        "/course":{
+            "/course/create" :{
+                "post": {
+                    "tags": ["Courses"],
+                    "summary": "Create a new Course",
+                    "description": "Add a new Course to the system",
+                    "parameters": [
+                        {
+                            "name": "Course",
+                            "in": "body",
+                            "description": "Course object to be created",
+                            "required": true,
+                            "schema": {
+                                "$ref": "#/definitions/Courses"
+                            }
+                        }
+                    ],
+                    "responses": {
+                        "200": {
+                            "description": "Course created successfully"
+                        }
+                    }
+                }
+            },
+            "/course": {
+                "get": {
+                    "tags": ["Courses"],
+                    "summary": "Return all courses from the system",
+                    "description": "Return all courses from the system",
+                    "produces": [
+                        "application/json"
+                    ],
+                    "responses": {
+                        "200": {
+                            "description": "Return all courses from the system",
+                            "schema": {
+                                "type": "array",
+                                "items": {
+                                    "$ref": "#/definitions/Courses"
+                                }
+                            }
+                        }
+                    }
+                }
+                
+            },
+            "/course/{id}": {
+                "get": {
+                    "tags": ["Courses"],
+                    "summary": "get course details that's id is entered",
+                    "description": "get course details that's id is entered",
+                    "parameters": [
+                        {
+                            "name": "course",
+                            "in": "body",
+                            "description": "Course details",
+                            "required": true,
+                            "schema": {
+                                "$ref": "#/definitions/Courses"
+                            }
+                        }
+                    ],
+                    "responses": {
+                        "200": {
+                            "description": "Course details"
+                        }
+                    }
+                },
+                "delete": {
+                    "tags": ["Courses"],
+                    "summary": "delete course when enter it's id",
+                    "description": "delete course when enter it's id",
+                    "parameters": [
+                        {
+                            "name": "application",
+                            "in": "body",
+                            "description": "Course object to be deleted",
+                            "required": true,
+                            "schema": {
+                                "$ref": "#/definitions/Courses"
+                            }
+                        }
+                    ],
+                    "responses": {
+                        "200": {
+                            "description": "Course deleted successfully"
+                        }
+                    }
+                },
+                "put": {
+                    "tags": ["Courses"],
+                    "summary": "update course when enter it's id with new properties",
+                    "description": "update course when enter it's id with new properties",
+                    "parameters": [
+                        {
+                            "name": "course",
+                            "in": "body",
+                            "description": "course object to be updated",
+                            "required": true,
+                            "schema": {
+                                "$ref": "#/definitions/Courses"
+                            }
+                        }
+                    ],
+                    "responses": {
+                        "200": {
+                            "description": "Course updated successfully"
+                        }
+                    }
+                },
+                "patch": {
+                    "tags": ["Courses"],
+                    "summary": "update course when user '((enroll))' into the course",
+                    "description": "update course when user '((enroll))' into the course",
+                    "parameters": [
+                        {
+                            "name": "course",
+                            "in": "body",
+                            "description": "course object to be updated",
+                            "required": true,
+                            "schema": {
+                                "$ref": "#/definitions/Courses"
+                            }
+                        }
+                    ],
+                    "responses": {
+                        "200": {
+                            "description": "Course updated successfully"
+                        }
+                    }
+                }
+            }
+        },
+        "/Job": {
+            "type": "object",
+            "required": [],
+            "properties": {
+                "companyName": { "type": "string" },
+                "field": { "type": "string" },
+                "location": { "type": "string" },
+                "companyLogo": { "type": "string" },
+                "aboutCompany": { "type": "string" },
+                "position": { "type": "string" },
+                "type": { "type": "string" },
+                "minRange": { "type": "number" },
+                "maxRange": { "type": "number" },
+                "currency": { "type": "string" },
+                "description": { "type": "string" },
+                "requirements": { "type": "string" },
+                "skills": { "type": "string" },
+                "status": { "type": "string" },
+                "postedAT": { "type": "date" },
+                "owner":{"type":"objectid"},
+                "applications": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "jobID": { "type": "objectid" },
+                            "Name": { "type": "string" },
+                            "yearsExp": { "type": "number" },
+                            "email": { "type": "string" },
+                            "phone": { "type": "string" },
+                            "cv": { "type": "string" },
+                            "owner":{"type":"objectid"}
+                        }
+                    }
+                }
+            }
+        },
+        "/Courses" : {
+            "type": "object",
+            "required": [],
+            "properties": {
+                "id":{
+                    "type": "objectid",
+                    "description": "The auto-generated id of the course"
+                },
+                "name":{
+                    "type": "string",
+                    "description": "The title of your course"
+              },
+         "instructor":{
+            "type": "string",
+            "description": "The instructor of course"
+         },
+          "level":{
+            "type": "number",
+            "description": "The level of course"
+          },
+          "numLessons": {
+            "type": "number",
+            "description": "The number of Lessons "
+        },
+            
+          "language":{
+            "type": "string",
+            "description": "The language of course"
+          },
+            
+          "startDate": {
+            "type": "string",
+            "description": "The start date of course"
+          },
+            
+          "duration":{
+            "type": "number",
+            "description": "The  duration of course"
+          },
+            
+          "certificate": {
+            "type": "boolean",
+            "description": "The certificate of course"
+          },
+            
+          "intro": {
+            "type": "string",
+            "description": "The introduction of course"
+          },
+           
+          "assessment": {
+            "type": "string",
+            "description": "The assessment of course"
+          },
+            
+          "requirements": {
+            "type": "string",
+            "description": "The requirements of course"
+          },
+            
+          "materials": {
+            "type": "string",
+          "description": "The materials of course"
+        },    
+          "publishDate":{
+            "type": "string",
+            "description": "The publish date of course"
+          },
+          "image":{
+            "type": "string",
+            "description": "The image of course"
+        },
+            "enroll": {
+                "type": "array",
+                "items": {
+                    "type": "object",
+                    "properties": {
+                        "userID": { "type": "objectid" }
+                    }
+                },
+                "description": "The ids of users"
+                }
+            }
+        },
+ 
+        "Certifications" : {
+            "type": "object",
+            "required": [],
+            "properties": {
+                "id":{
+                    "type": "objectid",
+                    "description": "The auto-generated id of the certificate"
+                },
+          
+                "name":{
+                    "type": "string",
+                    "description": "The title of your certification"
+              },
+           
+         "instructor":{
+            "type": "string",
+            "description": "The instructor of certificate"
+         },
+          "level":{
+            "type": "number",
+            "description": "The level of certification"
+          },
+        
+            
+          "language":{
+            "type": "string",
+            "description": "The language of certification"
+          },
+            
+          "startDate": {
+            "type": "string",
+            "description": "The start date of certificate"
+          },
+            
+          "duration":{
+            "type": "number",
+            "description": "The  duration of certificate"
+          },
+            
+          "certificate": {
+            "type": "boolean"
+          },
+          "requirements": {
+            "type": "string",
+            "description": "The requirements of certification"
+          },
+            
+          "materials": {
+            "type": "string",
+          "description": "The materials of certification"
+        },    
+          "publishDate":{
+            "type": "string",
+            "description": "The publish date of certificate"
+          },
+          "image":{
+            "type": "string",
+            "description": "The image of certification"
+          },
+            "enroll": {
+                "type": "array",
+                "items": {
+                    "type": "object",
+                    "properties": {
+                        "userID": { "type": "objectid" }
+                    }
+                },
+                "description": "The ids of users"
+                }
+            }
+        },
+        "Exams": {
+            "type": "object",
+            "required": [],
+            "properties": {
+                "level": { "type": "String"},
+                "course_id": { "type": "Schema.Types.ObjectId"},
+                "user_id": { "type": "Schema.Types.ObjectId"},
+                "full_mark": { "type": "Number"},
+                "date": { "type": "Date"},
+                "time": { "type": "String"},
+                "duration": { "type": "Number"},
+                "createdAT": { "type": "Date"},
+                "questions":{
+                    "type": "array",
+                    "properties": {
+                        "exam_id": { "type": "Schema.Types.ObjectId"},
+                        "question_type": { "type": "String"},
+                        "question": { "type": "String"},
+                        "mark": { "type": "Number"},
+                        "images": {"type": "array"},
+                        "options": { "type": "array"},
+                        "answer": { "type": "String"}
+                    }
+                }
+            }
+        },
+        "Cvs": {
+          "type": "object",
+          "required": [],
+          "properties": {
+              "firstname": {
+                  "type": "String" ,
+                  "description": "first name in CV must contain only letters"  }
+              },
+              "lastname": {
+                 " type": "String" ,
+                 "description":"last name in cv must contain only letters"
+                 }
+              ,
+              "profission" : {
+                  " type": "String" ,
+                  "description":"Profission in cv "
+              },
+             " country": {
+                  " type": "String" ,
+                 "description":"Country where Cv owner stay"
+              },
+              "city" : {
+                  " type": "String" ,
+                  "description":"City where Cv owner stay"
+              },
+              "phoneno" :{
+                  " type": "String" ,
+                  "description":"Phone no of  Cv owner "
+              },
+             " email": {
+              " type": "String" ,
+              "description":"Email no of  Cv owner "
+                  
+              },
+              "photo" : {
+                  " type": "String" ,
+                  "description":"where the Photo no of  Cv owner is saved"
+              },
+              "about" :{
+                  " type": "String" ,
+                  "description":"Phone no of  Cv owner "
+              },
+              "skills" : [
+                  {
+                      " type": "String" ,
+                      "description":"Phone no of  Cv owner "
+                  }
+              ],
+              "experience": [{
+                 " companyname":{
+                      " type": "String" ,
+                      "description":"Phone no of  Cv owner "
+                  },
+                  "position" : {
+                      " type": "String" ,
+                      "description":"Position  of  Cv owner "
+                  },
+                  "from" : {
+                      " type": "String" ,
+                      "description":"Beggining Date "
+                  },
+                 " to": {
+                  " type": "String" ,
+                  "description":"end date"
+                  },
+                  "logo" :{
+                      " type": "String" ,
+                      "description":"Logo of company of  Cv owner "
+                  } ,
+                  "description": {
+                      " type": "String" ,
+                      "description":"Phone no of  Cv owner "
+  
+                  }
+              }],
+              "honorsawards" :[{
+                  "name" :{
+                      " type": "String" ,
+                      "description":"Honors of  Cv owner "
+                  },
+                  "year":{
+                      " type": "String" ,
+                      "description":"Year of honor of Cv owner "
+                  },
+                  "describtion":{
+                      " type": "String" ,
+                      "description":"abput honors "
+                  }
+              }] ,
+              "education" : [{
+                  "organisation" : {
+                      " type": "String" ,
+                      "description":"Education of  Cv owner "
+                  },
+                  "degree" : {
+                      " type": "String" ,
+                      "description":"Degree of  Cv owner "
+                  },
+                  "from" : {
+                      " type": "String" ,
+                      "description":"start Year of education of  Cv owner "
+                  },
+                  "to" : {
+                      " type": "String" ,
+                      "description":"End year of education of  Cv owner "
+                  },
+                  "describtion" : {
+                      " type": "String" ,
+                      "description":"Description of education of  Cv owner "
+                  }
+                }],
+              "hobbiesintrests" : [
+                  {
+                      " type": "String" ,
+                      "description":"Hobbies & intrests of  Cv owner "
+                  }
+                ] ,
+                "links" : [{
+              "websitename" : {
+                  " type": "String" ,
+                  "description":"sites done by  Cv owner "
+              },
+              "url" : {
+                  " type": "String" ,
+                  "description":"url of site "
+               }}]
+          }
+        
+  }
+}
