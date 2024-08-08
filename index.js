@@ -27,6 +27,9 @@ cron.schedule('0 0 * * *', () => {      // run every day at 12 mid night
 
 app.use("/api", allRoutes);
 app.use("/api/file",express.static("./uploads"))
+app.use("*",(req,res)=>{
+  res.status(404).send("Invalid route")
+})
 
 const url = process.env.DB_URL;
 mongoose
